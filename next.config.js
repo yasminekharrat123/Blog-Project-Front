@@ -1,4 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = { basePath: "/blog" };
+const nextConfig = { assetPrefix: "/blog" };
 
 module.exports = nextConfig;
