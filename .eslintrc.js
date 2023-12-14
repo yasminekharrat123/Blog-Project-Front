@@ -38,7 +38,9 @@ module.exports = {
         "plugin:react-hooks/recommended",
         "plugin:storybook/recommended",
     ],
-
+    globals: {
+        React: "readonly",
+    },
     rules: {
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/no-explicit-any": "error",
@@ -75,5 +77,8 @@ module.exports = {
         "react/function-component-definition": "off",
         "react/no-unescaped-entities": "off",
         "react/no-unknown-property": "off",
+        "react/jsx-uses-react": "off",
+        "react/prop-types": "off",
+        "react/button-has-type": "off",
     },
 };
