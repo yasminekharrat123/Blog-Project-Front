@@ -74,5 +74,6 @@ module.exports = {
         "import/no-extraneous-dependencies": "off",
         "react/function-component-definition": "off",
         "react/no-unescaped-entities": "off",
+        "react/no-unknown-property": "off",
     },
 };
