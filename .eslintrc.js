@@ -36,6 +36,7 @@ module.exports = {
         "plugin:sonarjs/recommended",
         "plugin:security/recommended",
         "plugin:react-hooks/recommended",
+        "plugin:storybook/recommended",
     ],
 
     rules: {
@@ -69,5 +70,9 @@ module.exports = {
         ],
         "no-nested-ternary": "off",
         "import/prefer-default-export": "off",
+        "react/require-default-props": "off",
+        "import/no-extraneous-dependencies": "off",
+        "react/function-component-definition": "off",
+        "react/no-unescaped-entities": "off",
     },
 };
