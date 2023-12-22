@@ -23,17 +23,24 @@ export default {
                 type: "text",
             },
         },
+        disabled: {
+            control: {
+                type: "boolean",
+            },
+        },
     },
 };
 
 export const Variants = ({
     $variant,
     className,
+    disabled,
 }: {
     $variant: ButtonVariant;
     className: string;
+    disabled: boolean;
 }) => (
-    <Button $variant={$variant} className={className}>
+    <Button $variant={$variant} className={className} disabled={disabled}>
         Button
     </Button>
 );
