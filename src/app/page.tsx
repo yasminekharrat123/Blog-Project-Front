@@ -1,3 +1,4 @@
+import { Button } from "@/components/Button";
 import getAssetBasePath from "@/utils/getAssetBasePath";
 import Image from "next/image";
 
@@ -27,6 +28,7 @@ export default function Home() {
                             height={24}
                             priority
                         />
+                        <Button $variant="primary">Deploy</Button>
                     </a>
                 </div>
             </div>
