@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "test": "vitest",
+        "test": "vitest run",
         "test:lint": "npm run lint && npm run test",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build"
