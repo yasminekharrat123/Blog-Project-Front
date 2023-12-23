@@ -80,5 +80,7 @@ module.exports = {
         "react/jsx-uses-react": "off",
         "react/prop-types": "off",
         "react/button-has-type": "off",
+        "no-shadow": "off",
+        "no-param-reassign": "off",
     },
 };
