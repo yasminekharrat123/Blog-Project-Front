@@ -12,14 +12,11 @@ export default class UserService {
     }
 
     static async register(username: string, email: string, password: string) {
-        const response = await apiService.post<AuthResponseDto>(
-            "user/register",
-            {
-                username,
-                email,
-                password,
-            }
-        );
+        const response = await apiService.post<AuthResponseDto>("user/signup", {
+            username,
+            email,
+            password,
+        });
         return response.data;
     }
 
