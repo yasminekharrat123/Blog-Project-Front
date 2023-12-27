@@ -4,6 +4,7 @@ import { Button } from "@/components/Button";
 import promisify from "@/utils/promisify";
 import { AxiosError } from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
@@ -34,6 +35,8 @@ const AuthContainer: React.FC<React.PropsWithChildren<AuthContainerProps>> = ({
     children,
     authAction,
 }) => {
+    const router = useRouter();
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     useEffect(() => {
         const submitButton = document.getElementById("submit-button");
@@ -57,6 +60,9 @@ const AuthContainer: React.FC<React.PropsWithChildren<AuthContainerProps>> = ({
         try {
             setIsSubmitting(true);
             await promisify(authAction);
+            setTimeout(() => {
+                router.push("/");
+            }, 2000);
         } catch (error) {
             if (error instanceof AxiosError) {
                 toast.error(
