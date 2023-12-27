@@ -17,4 +17,6 @@ export default {
     },
 };
 
-export const InputExample = (args: InputProps) => <Input {...args} />;
+export const InputExample = (args: Omit<InputProps, "ref">) => (
+    <Input {...args} />
+);
