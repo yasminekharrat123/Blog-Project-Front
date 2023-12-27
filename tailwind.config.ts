@@ -57,6 +57,46 @@ const config: Config = {
                 "2xs": "0.75rem",
                 "3xs": "0.625rem",
             },
+            keyframes: {
+                "spin-slow": {
+                    "0%": {
+                        transform: "rotate(0deg)",
+                    },
+                    "100%": {
+                        transform: "rotate(360deg)",
+                    },
+                },
+                "spin-fast": {
+                    "0%": {
+                        transform: "rotate(0deg)",
+                    },
+                    "100%": {
+                        transform: "rotate(360deg)",
+                    },
+                },
+                fadeIn: {
+                    "0%": {
+                        opacity: "0",
+                    },
+                    "100%": {
+                        opacity: "1",
+                    },
+                },
+                fadeOut: {
+                    "0%": {
+                        opacity: "1",
+                    },
+                    "100%": {
+                        opacity: "0",
+                    },
+                },
+            },
+            animation: {
+                "spin-slow": "spin 2s linear infinite",
+                "spin-fast": "spin 0.5s linear infinite",
+                fadeIn: "fadeIn 0.5s ease-in-out",
+                fadeOut: "fadeOut 0.5s ease-in-out",
+            },
         },
     },
     plugins: [],
