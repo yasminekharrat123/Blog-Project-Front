@@ -1,8 +1,10 @@
+import React from "react";
 import createAxiosInterceptorFromNextRequestHandler from "@/interceptors/server-jwt.interceptor";
 import { UserResponseDto } from "@/services/UserService/dto/user-response.dto";
 import UserService from "@/services/UserService/user.service";
 import apiService from "@/services/api.service";
 import { cookies } from "next/headers";
+import ClientNavtop from "./ClientNavtop";
 
 async function getUser(): Promise<UserResponseDto | null> {
     const interceptor = createAxiosInterceptorFromNextRequestHandler(cookies());
@@ -17,13 +19,10 @@ async function getUser(): Promise<UserResponseDto | null> {
     }
 }
 
-export default async function Navtop() {
-    const user = await getUser();
-    return user ? (
-        <div className="flex w-full text-black text-center">
-            Logged in as {user.username}
-        </div>
-    ) : (
-        <div className="flex-w-full text-black text-center">Not logged in</div>
-    );
-}
+const Navtop: React.FC = async (): Promise<React.JSX.Element> => {
+    const user: UserResponseDto | null = await getUser();
+
+    return user ? <ClientNavtop user={user} /> : <ClientNavtop user={null} />;
+};
+
+export default Navtop;

@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import colors from "tailwindcss/colors";
+import aspectRatio from "@tailwindcss/aspect-ratio";
 
 const config: Config = {
     content: [
@@ -8,6 +9,11 @@ const config: Config = {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
+        fontFamily: {
+            sans: ["Helvetica", "Arial", "sans-serif"],
+            serif: ["Georgia", "ui-serif"],
+            mono: ["SFMono-Regular"],
+        },
         extend: {
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -99,6 +105,6 @@ const config: Config = {
             },
         },
     },
-    plugins: [],
+    plugins: [aspectRatio],
 };
 export default config;

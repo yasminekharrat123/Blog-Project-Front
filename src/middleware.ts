@@ -8,6 +8,19 @@ export function middleware(request: NextRequest) {
     // List of routes that are considered "auth routes"
     const authRoutes = ["/login", "/register"];
 
+    // List of image file extensions
+    const imageExtensions = [".jpg", ".jpeg", ".png", ".svg", ".gif", ".webp"];
+
+    // Check if the request is for an image
+    const isImageRequest = imageExtensions.some(extension =>
+        pathname.endsWith(extension)
+    );
+
+    // If the request is for an image, allow it to continue
+    if (isImageRequest) {
+        return NextResponse.next();
+    }
+
     // Redirect to /login if no token and on a non-auth route
     if (!token && !authRoutes.includes(pathname)) {
         url.pathname = "/login";
