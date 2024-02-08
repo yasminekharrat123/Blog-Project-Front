@@ -1,13 +1,13 @@
 import { InternalAxiosRequestConfig } from "axios";
-import { NextRequest } from "next/server";
+import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 
 export default function createAxiosInterceptorFromNextRequestHandler(
-    nextRequest: NextRequest
+    cookies: ReadonlyRequestCookies
 ): (cfg: InternalAxiosRequestConfig) => InternalAxiosRequestConfig {
     return (cfg: InternalAxiosRequestConfig) => {
-        const jwt = nextRequest.cookies.get("jwt");
+        const jwt = cookies.get("auth-token");
         if (jwt) {
-            cfg.headers.Authorization = `Bearer ${jwt}`;
+            cfg.headers.Authorization = `Bearer ${jwt.value ?? ""}`;
         }
         return cfg;
     };
